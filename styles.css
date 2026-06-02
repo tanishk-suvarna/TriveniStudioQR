@@ -1,0 +1,295 @@
+:root {
+  color-scheme: light;
+  --bg: #fbf7f0; /* warm white background */
+  --bg-2: #f7f3ee;
+  --card: #ffffff;
+  --card-border: rgba(184, 134, 11, 0.18);
+  --text: #141312; /* dark text for warm background */
+  --muted: #5a5347;
+  --accent: #b8860b; /* warmer gold */
+  --accent-2: #f2d58a;
+  --shadow: 0 18px 40px rgba(27, 27, 27, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(160deg, var(--bg), var(--bg-2));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, black, transparent 82%);
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0 64px;
+}
+
+.brand-panel {
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.99));
+  box-shadow: var(--shadow);
+}
+
+.logo-frame {
+  width: min(100%, 340px);
+  margin: 0 auto;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f3eee8, #e9e3db); /* slightly darker than page */
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 28px rgba(27,27,27,0.06);
+}
+
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.7rem, 5.6vw, 5.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 18px 0 0;
+  max-width: 58ch;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.studio-title {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 2.75rem;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.studio-subtitle {
+  margin: 6px 0 0;
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  color: var(--accent);
+  opacity: 0.98;
+  text-transform: none;
+}
+
+.contact-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--card-border);
+  font-weight: 600;
+}
+
+.btn-call, .btn-whatsapp, .btn-email { background: var(--accent); color: #111; border-color: var(--accent) }
+
+.contact-details { margin-top: 14px; color: var(--muted); font-size: 0.95rem }
+
+/* Testimonials */
+.testimonials-panel { margin-top: 28px; }
+.testimonials-title { margin: 0 0 12px; color: var(--accent); font-family: "Cinzel", serif; letter-spacing: 0.08em }
+.testimonials { display: grid; gap: 12px; position: relative; min-height: 120px }
+.testimonial { display: none; padding: 16px; border-radius: 12px; background: #fffaf7; border: 1px solid rgba(0,0,0,0.04) }
+.testimonial.active { display: block }
+.quote { margin: 0 0 8px; color: #2a2725; font-style: italic }
+.author { margin: 0; color: var(--muted); font-weight: 700 }
+
+/* Map */
+.map-panel { margin-top: 28px; }
+.map-frame { width: 100%; max-width: 980px; margin: 18px auto 56px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.06); }
+.map-frame iframe { width: 100%; height: 420px; border: 0; display: block; }
+
+.salon-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.salon-pills span {
+  padding: 8px 12px;
+  border: 1px solid rgba(184,134,11,0.12);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(242,213,138,0.08);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.card {
+  grid-column: span 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #fbfaf8);
+  box-shadow: 0 8px 22px rgba(24,24,24,0.06);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, #fffdfb, #fbfaf8);
+  outline: none;
+}
+
+.meta {
+  min-width: 0;
+}
+
+.platform {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.handle {
+  margin: 0;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #111;
+  font-size: 1.2rem;
+}
+
+.links-panel {
+  margin-top: 26px;
+}
+
+.links-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 0 2px;
+}
+
+.section-label {
+  margin: 0;
+  color: var(--accent);
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.section-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 820px) {
+  .brand-panel {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .logo-frame {
+    width: min(100%, 290px);
+  }
+
+  .card {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 34px;
+  }
+
+  .brand-panel {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .card {
+    padding: 18px 18px;
+  }
+
+  .links-head {
+    align-items: start;
+  }
+}
